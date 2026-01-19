@@ -70,13 +70,58 @@ Un sistema robusto para la gestión segura de documentos empresariales, diseñad
 - [Testing Frontend](docs/FRONTEND_TESTING.md)
 - [Walkthrough Completo](C:/Users/user/.gemini/antigravity/brain/aa675a71-5a10-4b76-b904-96a6094382bf/walkthrough.md)
 
-## 🤝 Contribución
+## 🤝 Flujo de Trabajo y Normas de Git
 
-1. Haz un Fork del proyecto.
-2. Crea una rama para tu característica (`git checkout -b feature/AmazingFeature`).
-3. Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`).
-4. Push a la rama (`git push origin feature/AmazingFeature`).
-5. Abre un Pull Request.
+### 1. Estrategia de Ramas
+Nuestro flujo de trabajo se basa en **Feature Branching**.
+- **`main`**: Rama estable y protegida. **PROHIBIDO COMMIT DIRECTO.**
+- **`feature/nombre-corto`**: Para nuevas funcionalidades (ej: `feature/login`, `feature/tabla-usuarios`).
+- **`fix/nombre-corto`**: Para corrección de errores (ej: `fix/error-auth`).
+
+### 2. Rutina Diaria
+1. **Antes de empezar:**
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+2. **Crear rama de trabajo:**
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
+3. **Guardar cambios (Commit):**
+   ```bash
+   git add .
+   git commit -m "feat: descripción breve del cambio"
+   ```
+4. **Subir cambios:**
+   ```bash
+   git push origin feature/nueva-funcionalidad
+   ```
+5. **Crear Pull Request:** Desde GitHub, crear PR hacia `main`.
+
+### 3. Convención de Commits
+Usamos **Conventional Commits** simplificado:
+- `feat: ...` -> Nueva funcionalidad.
+- `fix: ...` -> Corrección de errores.
+- `docs: ...` -> Cambios en documentación.
+- `style: ...` -> Cambios de formato (espacios, puntos y comas).
+- `refactor: ...` -> Cambios de código que no arreglan bugs ni añaden funcionalidades.
+
+**Ejemplos:**
+- ✅ `feat: agregar validación en formulario de contacto`
+- ✅ `fix: corregir error de carga en safari`
+- ❌ `cambios en el login` (muy vago)
+
+### 4. Pull Requests (PR)
+- **Título claro:** Describiendo qué hace el PR.
+- **Revisión obligatoria:** El otro desarrollador debe aprobar el PR.
+- **Checks:** El proyecto debe compilar (`npm run build`) antes del merge.
+- **Merge:** "Squash and merge" (recomendado) o "Merge commit".
+
+### 5. Configuración de Entorno
+- **Nunca** subir archivos `.env` al repositorio.
+- Usar `.env.example` como plantilla para las variables requeridas.
+
 
 ## 📄 Licencia
 
